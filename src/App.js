@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import Bookshelf from './components/Bookshelf';
-import Book from './components/Book';
 
-const books = [
+const booksData = [
   {
     id: 1,
     title: 'Laravel collections',
@@ -17,13 +17,12 @@ const books = [
 ];
 
 function App() {
+  const [books, setBooks] = useState([]);
+
   return (
     <div className='App'>
-      <Bookshelf>
-        {books.map((book) => (
-          <Book title={book.title} key={book.id} />
-        ))}
-      </Bookshelf>
+      <Bookshelf books={books}></Bookshelf>
+      <button onClick={() => setBooks(booksData)}>Load the books</button>
     </div>
   );
 }
