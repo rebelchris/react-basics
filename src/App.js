@@ -1,29 +1,15 @@
-import { useState } from 'react';
-import Bookshelf from './components/Bookshelf';
-
-const booksData = [
-  {
-    id: 1,
-    title: 'Laravel collections',
-  },
-  {
-    id: 2,
-    title: 'Ruby for beginners',
-  },
-  {
-    id: 3,
-    title: 'CSS is awesome',
-  },
-];
+import { ThemeProvider } from './context/ThemeContext';
+import Toggle from './components/Toggle';
+import Paint from './components/Paint';
 
 function App() {
-  const [books, setBooks] = useState([]);
-
   return (
-    <div className='App'>
-      <Bookshelf books={books}></Bookshelf>
-      <button onClick={() => setBooks(booksData)}>Load the books</button>
-    </div>
+    <ThemeProvider>
+      <div className='App'>
+        <Paint />
+        <Toggle />
+      </div>
+    </ThemeProvider>
   );
 }
 
